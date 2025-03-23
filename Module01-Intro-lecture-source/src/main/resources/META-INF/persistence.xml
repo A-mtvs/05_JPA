@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    <!-- 엔티티 매니저 팩토리를 식별하기 위한 이름 설정 -->
+    <persistence-unit name="jpa-config">
+        <class>com.ohgiraffers.chap02.model.Role</class>
+        <class>com.ohgiraffers.chap02.model.User</class>
+        <properties>
+            <!-- 데이터 베이스 연결 정보 -->
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/HELLOWORLDLABS_LMS"/>
+            <property name="jakarta.persistence.jdbc.user" value="gorilla"/>
+            <property name="jakarta.persistence.jdbc.password" value="gorilla"/>
+            <!-- hibernate 설정 (실행 되는 sql 구문을 format 형태로 보여준다) -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
