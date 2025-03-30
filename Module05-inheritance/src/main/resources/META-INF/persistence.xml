@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+
+    <!-- 엔티티 매니저 팩토리를 식별하기 위한 이름 설정 -->
+    <persistence-unit name="jpa-lecture">
+        <!-- section02 -->
+        <class>com.ohgiraffers.inheritance.chap01.section02.model.ClothingProduct</class>
+        <class>com.ohgiraffers.inheritance.chap01.section02.model.ElectronicProduct</class>
+        <class>com.ohgiraffers.inheritance.chap01.section02.model.FoodProduct</class>
+        <class>com.ohgiraffers.inheritance.chap01.section02.model.Product</class>
+
+        <!-- section03 -->
+        <class>com.ohgiraffers.inheritance.chap01.section03.model.ProductJoined</class>
+        <class>com.ohgiraffers.inheritance.chap01.section03.model.FoodProductJoined</class>
+        <class>com.ohgiraffers.inheritance.chap01.section03.model.ClothingProductJoined</class>
+        <class>com.ohgiraffers.inheritance.chap01.section03.model.ElectronicProductJoined</class>
+
+        <!-- section04 -->
+        <class>com.ohgiraffers.inheritance.chap01.section04.model.ProductTPC</class>
+        <class>com.ohgiraffers.inheritance.chap01.section04.model.ElectronicProductTPC</class>
+        <class>com.ohgiraffers.inheritance.chap01.section04.model.ClothingProductTPC</class>
+        <class>com.ohgiraffers.inheritance.chap01.section04.model.FoodProductTPC</class>
+
+        <properties>
+            <!-- 데이터 베이스 연결 정보 -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="gorilla"/>
+            <property name="javax.persistence.jdbc.password" value="gorilla"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/JPA_LECTURE"/>
+            <!-- hibernate 설정 (실행 되는 sql의 생성) -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!-- hibernate 설정 (실행 되는 sql 구문을 format 형태로 보여준다) -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+
+
+    <persistence-unit name="jpa-lesson">
+
+        <class>com.ohgiraffers.inheritance.mission.model.Admin</class>
+        <class>com.ohgiraffers.inheritance.mission.model.Instructor</class>
+        <class>com.ohgiraffers.inheritance.mission.model.Student</class>
+        <class>com.ohgiraffers.inheritance.mission.model.User</class>
+        <properties>
+            <!-- 데이터 베이스 연결 정보 -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="gorilla"/>
+            <property name="javax.persistence.jdbc.password" value="gorilla"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/HELLOWORLDLABS_LMS"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!-- hibernate 설정 (실행 되는 sql 구문을 format 형태로 보여준다) -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

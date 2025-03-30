@@ -1,0 +1,5 @@
+<configuration>
+    <!-- 모든 로깅 비활성화 -->
+    <logger name="org.hibernate" level="OFF"/>
+    <root level="OFF"/>
+</configuration>

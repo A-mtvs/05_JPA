@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    
+    <!-- 엔티티 매니저 팩토리를 식별하기 위한 이름 설정 -->
+    <persistence-unit name="jpa-lecture">
+        <class>com.ohgiraffers.chap01.section02.User</class>
+        <class>com.ohgiraffers.chap01.section03.Product</class>
+        <properties>
+            <!-- 데이터 베이스 연결 정보 -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="gorilla"/>
+            <property name="javax.persistence.jdbc.password" value="gorilla"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/JPA_LECTURE"/>
+            <!-- hibernate 설정 (실행 되는 sql의 생성) -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!-- hibernate 설정 (실행 되는 sql 구문을 format 형태로 보여준다) -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    
+    
+    <persistence-unit name="jpa-lesson">
+        <properties>
+            <!-- 데이터 베이스 연결 정보 -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="gorilla"/>
+            <property name="javax.persistence.jdbc.password" value="gorilla"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/HELLOWORLDLABS_LMS"/>
+            <!-- hibernate 설정 (실행 되는 sql 구문을 format 형태로 보여준다) -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
