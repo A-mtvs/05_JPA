@@ -7,6 +7,9 @@ import jakarta.persistence.Table;
 
 /*
  * 📌 자식 클래스: ClothingProductJoined
+ * @DiscriminatorValue("CLOTHING")
+ * 조인 전략에서 @DiscriminatorValue("CLOTHING")는 해당 하위 클래스의 엔티티가 데이터베이스에 저장될 때 product_type 컬럼에 저장될 특정 값을 정의하며, 
+ * JPA는 이 값을 기반으로 어떤 하위 클래스의 데이터를 조인하여 로드할지 결정
  */
 @Entity
 @Table(name = "clothing_products_joined")
