@@ -22,10 +22,17 @@ import jakarta.persistence.*;
 public abstract class ProductTPC {
 
     // IDENTITY 사용시 에러 발생.
+    /*
+     IDENTITY 사용시 에러 발생.
+     TABLE_PER_CLASS 전략은 각 자식 클래스마다 별도의 테이블을 생성다.
+     IDENTITY 전략은 각 테이블 내에서 독립적인 자동 증가 ID를 생성하므로,
+     서로 다른 자식 테이블에 저장된 엔티티들이 동일한 ID 값을 가질 수 있다.
+     이는 상속 관계에서 엔티티의 고유성을 보장하는 데 문제를 일으키므로,
+     TABLE_PER_CLASS 전략에서는 SEQUENCE 전략과 같은 공유된 ID 생성 방식을 사용하는 것이 일반적이다.
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_generator")
     @SequenceGenerator(name = "product_id_generator", sequenceName = "product_id_seq", allocationSize = 1)
-
     private Long id;
 
     private String name;
