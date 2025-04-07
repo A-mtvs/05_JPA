@@ -39,13 +39,15 @@ public class Application {
              * - AvailableSize는 Product에 종속적인 데이터로, 독립적인 생명주기를 가질 필요가 없음.
              * - 하지만 @Entity로 정의되어 JPA가 이를 독립적인 엔티티로 관리.
              * - 단순한 값 변경(재고 감소)에도 JPA의 변경 추적(Dirty Checking)이 발생하여 불필요한 오버헤드 초래.
+             * - 값 JPA에서 엔티티의 변화는 JPA에서 계속 추적하게 된다. 그러나 값 객체의 경우 변화가 발생하면 
+             *    새롭게 삭제하고 추가하는 매커니즘으로 변경을 추적하지 않는다.
              */
             product1.decreaseStock("M", 5); // dirty checking
             System.out.println("티셔츠 M 사이즈 재고 감소 후: " + product1.getAvailableSizes());
 
             /*
              * ❌ 문제점 2: 동등성 비교의 어려움 (참조 기반 비교)
-             * - AvailableSize가 엔티티로 관리되므로, JPA는 참조 기반으로 객체를 비교.
+             * - AvailableSize가 엔티티로 관리되므로, JPA는 참조(메모리) 기반으로 객체를 비교.
              * - 동일한 라벨("M")을 가진 새로운 AvailableSize 객체를 생성하더라도,
              *   컬렉션에서 이를 동일한 객체로 인식하지 않음.
              * - 이는 JPA에서 엔티티를 식별하는 기준은 ID가 되기 때문에 값만으로 비교하지 않음.
