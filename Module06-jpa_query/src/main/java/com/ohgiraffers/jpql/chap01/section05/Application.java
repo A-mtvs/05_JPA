@@ -23,7 +23,11 @@ public class Application {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-lecture");
         EntityManager em = emf.createEntityManager();
 
-
+        /*
+        영속성 컨텍스트는 데이터베이스에서 조회된 개별 엔티티를 관리한다. 
+        GROUP BY 절은 데이터베이스에서 데이터를 집계하는 역할을 하지만, 
+        JPA는 그룹화되기 전의 개별 Course 엔티티와 Lesson 엔티티를 영속성 컨텍스트에 로드한다.
+        */
         String jpql = " SELECT new com.ohgiraffers.jpql.chap01.section05.dto.CourseDTO(c.courseId, c.title, COUNT(l))" +
                   " FROM Course c JOIN c.lessons l  GROUP BY c.courseId, c.title" +
                 " HAVING COUNT(l) > :cnt";
